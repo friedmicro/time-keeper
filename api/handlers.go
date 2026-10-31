@@ -100,9 +100,9 @@ func handleWeekTimes(cfg Config) http.HandlerFunc {
 		if quotaHours > 40 {
 			quotaHours = 40
 		}
-		breakHours := iso*8 - 3
-		if breakHours > 37 {
-			breakHours = 37
+		breakHours := iso * 6
+		if breakHours > 30 {
+			breakHours = 30
 		}
 		weekHours := round2(float64(weekRow) / 3600)
 		breakMet := float64(breakHours) <= weekHours

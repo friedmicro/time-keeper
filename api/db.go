@@ -85,6 +85,7 @@ func getSession(db *sql.DB) (*SessionRow, error) {
 	if err != nil {
 		return nil, err
 	}
-	s.StartTime = s.StartTime.Add(7 * time.Hour)
+	_, offset := s.StartTime.In(LA).Zone()
+	s.StartTime = s.StartTime.Add(time.Duration(-offset) * time.Second)
 	return s, nil
 }
