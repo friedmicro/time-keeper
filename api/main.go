@@ -58,9 +58,10 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/api/week_times", handleWeekTimes(cfg))
-	mux.HandleFunc("/api/week", handleWeek(cfg))
-	mux.HandleFunc("/api/current", handleCurrent(cfg))
+	cache := newLastResponseCache()
+	mux.HandleFunc("/api/week_times", cache.wrap("/api/week_times", handleWeekTimes(cfg)))
+	mux.HandleFunc("/api/week", cache.wrap("/api/week", handleWeek(cfg)))
+	mux.HandleFunc("/api/current", cache.wrap("/api/current", handleCurrent(cfg)))
 	mux.HandleFunc("/api/day", handleDay(cfg))
 	mux.HandleFunc("/api/start", handleStart(cfg))
 	mux.HandleFunc("/api/stop", handleStop(cfg))

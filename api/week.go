@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+type TimeRow struct {
+	Date         time.Time
+	TotalSeconds float64
+	Category     string
+}
+
 var LA = mustLoadLocation(env("TIMEZONE", "America/Los_Angeles"))
 
 func mustLoadLocation(name string) *time.Location {
@@ -31,12 +37,6 @@ func getMonday(now time.Time) time.Time {
 func sessionSeconds(s *SessionRow, now time.Time) int64 {
 	start := s.StartTime
 	return int64(now.In(LA).Sub(start).Seconds())
-}
-
-type TimeRow struct {
-	Date         time.Time
-	TotalSeconds float64
-	Category     string
 }
 
 func getTimeData(db *sql.DB, cfg Config, now time.Time) ([]TimeRow, error) {

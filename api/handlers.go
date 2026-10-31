@@ -23,7 +23,7 @@ func methodNotAllowed(w http.ResponseWriter, allow string) {
 func writeJSON(w http.ResponseWriter, code int, v any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	_ = json.NewEncoder(w).Encode(v)
+	json.NewEncoder(w).Encode(v)
 }
 
 func clientIP(r *http.Request) string {
