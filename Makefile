@@ -18,7 +18,7 @@ state: $(BIN)
 	cd state && $(GO) build -trimpath -ldflags="-s -w" -o ../$(BIN)/timestate .
 
 timewaybar: $(BIN)
-	cd timewaybar && $(GO) build -o ../$(BIN)/timewaybar .
+	cd timewaybar && cargo build --release
 
 gtk: $(BIN)
 	$(CMAKE) -S . -B build-gtk

@@ -91,6 +91,7 @@ gtk: a simple GTK application that lets you start\stop the time and see the curr
 
 In addition to this you will need to configure any and all environment variables to your needs.
 
+Do note the waybar component has a dependency on: https://github.com/friedmicro/waybar-net-daemon.
 
 ## Environment variables
 
