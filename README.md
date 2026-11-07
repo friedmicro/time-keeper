@@ -181,7 +181,6 @@ cached-state JSON path).
 - Athena: The time tracking API is used by Athena so if you have set it in your config you can block Athena from opening any applications until you are done with work for the day. https://github.com/friedmicro/athena
 
 ### Future improvements
-- Caching for DB disconnections or crashes, currently a DB failure takes out even requesting previously set times
 - Buffering\offloading times on the GTK client. If traveling with a laptop the time worked should sync back to the network once returned. Currently this requires a remote connection to the network which is mildly tedious.
 - Improvements to the distraction daemon...the daemon currently is in C, but the pipewire integration isn't perfect. I will likely rewrite that daemon in the future to improve this.
 
