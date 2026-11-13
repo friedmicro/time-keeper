@@ -37,7 +37,7 @@ The backend services are entirely stateless because only the main API is actuall
 ## APIs
 
 ### Main API:
-| Method | Path            | Description                              | Example Response |
+| Method | Path            | Description                              | Example Response\Request (GET\POST) |
 |--------|-----------------|------------------------------------------|--------|
 | GET    | `/api/week_times` | Weekly per-day time totals + quotas     | {"break_met":false,"days":{"0":{"date":"2026-10-25","hours":8.06},"1":{"date":"2026-10-27","hours":1.36}},"quota_met":false,"today_hours":1.36,"totals":9.42} |
 | GET    | `/api/week`      | Weekly summary JSON (includes categories) | {"categories":[{"date":"2026-10-27","category":"","total":"1h 22m 53s"},{"date":"2026-10-25","category":"uncategorized","total":"8h 3m 48s"}],"days":[{"date":"2026-10-27","total":"1h 22m 53s"},{"date":"2026-10-25","total":"8h 3m 48s"}],"week_total":"9h 26m 41s"} |
@@ -45,7 +45,7 @@ The backend services are entirely stateless because only the main API is actuall
 | POST   | `/api/start`    | Start a new run (optional `category`)     | |
 | POST   | `/api/stop`     | Stop the current run          | |
 | POST   | `/api/add_8_hours` | Add 8h to the hours worked | |
-| POST   | `/api/add_time` | Add arbitrary hours to the weekly time | |
+| POST   | `/api/add_time` | Add arbitrary hours to the weekly time | {"hours": 2, "category": "project", "date": "18-11-2026"} |
 
 ### State API
 | Method | Path            | Description                              | Example Response |
